@@ -1,0 +1,85 @@
+body div {
+    width: 300px;
+    margin: 0 auto;
+}
+
+body div div {
+    margin-bottom: 50px;
+}
+
+.button {
+    -webkit-appearance: none;
+    min-width: 70px;
+    border: 2px solid #4CAF50;
+    background-color: white;
+    color: #4CAF50;
+    margin: 0;
+    padding: 3px 6px;
+    border-radius: 4px;
+    text-align: center;
+    font: 14px arial;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.button-delete {
+    -webkit-appearance: none;
+    float: right;
+    border: 2px solid #ff5b5b;
+    background-color: white;
+    color: #ff5b5b;
+    margin: 0;
+    padding: 3px 6px;
+    border-radius: 4px;
+    text-align: center;
+    font: 14px arial;
+    cursor: pointer;
+}
+
+.button-delete:hover {
+    background-color: #ff5b5b;
+    color: white;
+}
+
+#profiles li {
+    width: 260px;
+    height: 28px;
+    font: 16px arial;
+    line-height: 28px;
+    color: dimgray;
+}
+
+input[type=text] {
+    width: 100px;
+    padding: 6px;
+    margin: 8px;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+    font: 14px arial;
+    color: dimgray;
+}
+
+.center {
+    text-align: center;
+}
+
+h1 {
+    font: 24px arial;
+    color: dimgray;
+}
+
+p {
+    color: dimgray;
+    font: 14px arial;
+}
+
+a {
+    cursor: pointer;
+    text-decoration: none;
+}
