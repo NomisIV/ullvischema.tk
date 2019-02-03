@@ -1,3 +1,10 @@
+function update() {
+    if (localStorage.version != 5.3 && localStorage.users) {
+        alert("Ullvischema has recently moved to another server, and unfortunately the localStorage has changed. This means that the tag used prevoiusly doesn't work anymore. However, I got rid of that ugly webhost-banner at the bottom of the website.");
+        localStorage.version = 5.3;
+    }
+}
+
 let students;
 
 var xhttp = new XMLHttpRequest();
