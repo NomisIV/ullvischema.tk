@@ -2,77 +2,36 @@
 <html>
     <head>
         <title>Schedule</title>
-        <link rel="shortcut icon" href="ullvi.ico"/>
+        <link rel="shortcut icon" href="../ullvi.ico"/>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
-        <!-- Bootstrap.css -->
-        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-        
-        <!-- Datepicker.css -->
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.min.css">
-        
-        <!-- jQuery.js -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-        
-        <!-- Bootstrap.js -->
-        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
-        
-        <!-- Datepicker.js -->
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
 
         <!-- style.css -->
         <link rel="stylesheet" href="style.css">
     </head>
-    <body onload="getTime(), schedule()" onresize="schedule()">
+    <body>
+        <h1>Welcome! Please enter your class and name below.</h1>
+        <p>Don't worry, this is a one time process only.</p>
         
-        <!-- Menu bar -->
-        <div class="center">
-            <div class="spacer-left">
-                <select id="users" onchange="schedule()"></select>
-            </div>
-            
-            <!-- Datebar -->
-            <div class="datebar">
-                <input type="button" value="Previous" onclick="prev()">
-                <input type="input" id="datepicker" onchange="schedule()">
-                <input type="button" value="Next" onclick="next()">
-            </div>
-
-            <!-- Clock -->
-            <div id="clock"></div>
+        <!-- Select bar -->
+        <div>
+            <select id="class_list" onchange="getNameList()">
+                <option value="not chosen">Class</option>
+            </select>
+            <select id="name_list" disabled onchange="activateSubmitButton()">
+                <option value="not chosen">Name</option>
+            </select>
+            <input type="button" value="Continue" id="submit" class="btn-small-green" onclick="submit()" disabled>
         </div>
-        
-        <!-- Schedule -->
-        <img id="schedule" alt="Schedule">
-    </body>
-    <footer style="margin-top: 20px">
-        <div class="center">
-            <p><a href="settings">Settings</a> | <a href="http://www.qbgraphics.tk">QB Graphics</a> | <script src="mail.js" type="text/javascript"></script></p>
-            <p>Made by: Simon Gutgesell 17TE</p>
-            <p>Version 5.2</p>
+
+        <!-- Why -->
+        <p><a onclick="document.getElementById('why').style.display = 'block'">Why is this happening?</a></p>
+        <div id="why">
+            <p>Earlier ullvischema.tk used ID-numbers to access the schedules, and the computer had to "remember" your ID-number to be able to "remember" your schedule. What the computer did to remember the ID-number was to store it in ullvischema's localStorage, with questionable security. Fortunately I have found another way. NovaSoftware left a list of tags with corresponding users in their source code. The tags works excacly like the ID-numbers, which is why i decided to completely abandon the old method. I copied the list to my code, and now I need to know who you are to find your tag. Once again, this is a one time process only.</p>
         </div>
 
         <!-- script.js -->
         <script src="script.js"></script>
-        
-        <!-- Datepicker setup -->
-        <script>
-            $('#datepicker').datepicker({
-                format: "M d",
-                weekStart: 1,
-                maxViewMode: 1,
-                startDate: "Jan 9",
-                endDate: "Jun 14",
-                orientation: "bottom auto",
-                daysOfWeekDisabled: "0,6",
-                autoclose: true,
-                todayHighlight: true
-            });
-            
-            //Datepicker day
-            $("#datepicker").datepicker("setUTCDate", new Date());
-        </script>
-    </footer>
+    </body>
 </html>

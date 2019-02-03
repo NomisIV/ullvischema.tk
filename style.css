@@ -1,22 +1,10 @@
-::-webkit-scrollbar {
-    display: none;
-}
-
-.center {
+html, body {
     text-align: center;
-    height: 26px;
-    margin: 8px 0 4px;
-}
-
-.spacer-left {
-    float: left;
-    width: calc(50% - 8px - 118px);
-    margin-left: 8px;
 }
 
 select {
-    float: left;
     width: 100%;
+    min-width: 70px;
     max-width: max-content;
     height: 26px;
     -webkit-appearance: none;
@@ -26,17 +14,12 @@ select {
     padding: 3px 6px;
     border-radius: 4px;
     font: 14px arial;
-    cursor: pointer;
 }
 
 select:hover {
     background-color: #4c4caf;
     color: white;
-}
-
-.datebar {
-    float: left;
-    width: 236px;
+    cursor: pointer;
 }
 
 input[type=button] {
@@ -46,39 +29,52 @@ input[type=button] {
     background-color: white;
     color: #4CAF50;
     margin: 0;
-    padding: 3px;
+    padding: 3px 6px;
     border-radius: 4px;
     text-align: center;
     font: 14px arial;
-    cursor: pointer;
 }
 
-input[type=button]:hover {
+input[type=button]:disabled {
+    filter: grayscale(1);
+}
+
+input[type=button]:hover:enabled {
     background-color: #4CAF50;
     color: white;
-}
-
-#datepicker {
-    width: 60px;
-    padding: 3px;
-    border: 2px solid dimgray;
-    border-radius: 4px;
-    font: 14px arial;
-    color: dimgray;
-    text-align: center;
     cursor: pointer;
 }
 
-#clock {
-    float: right;
-    width: calc(50% - 118px - 8px);
-    height: 26px;
-    margin-right: 8px;
-    text-align: right;
-    font-size: 20px;
+#why {
+    width: 500px;
+    max-width: 100%;
+    margin: auto;
+    text-align: left;
+    display: none;
 }
 
-#schedule {
-    display: block;
-    margin: auto;
+h1 {
+    font: 24px arial;
+    color: dimgray;
+}
+
+h2 {
+    font: 20px arial;
+    color: dimgray;
+    text-align: center;
+}
+
+p {
+    color: dimgray;
+    font: 14px arial;
+}
+
+a {
+    color: #4e4caf;
+    font: 14px arial;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration-line: underline;
 }
