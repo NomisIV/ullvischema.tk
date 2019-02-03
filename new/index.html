@@ -1,1 +1,37 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Schedule</title>
+        <link rel="shortcut icon" href="../ullvi.ico"/>
 
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- style.css -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body>
+        <h1>Welcome! Please enter your class and name below.</h1>
+        <p>Don't worry, this is a one time process only.</p>
+        
+        <!-- Select bar -->
+        <div>
+            <select id="class_list" onchange="getNameList()">
+                <option value="not chosen">Class</option>
+            </select>
+            <select id="name_list" disabled onchange="activateSubmitButton()">
+                <option value="not chosen">Name</option>
+            </select>
+            <input type="button" value="Continue" id="submit" class="btn-small-green" onclick="submit()" disabled>
+        </div>
+
+        <!-- Why -->
+        <p><a onclick="document.getElementById('why').style.display = 'block'">Why is this happening?</a></p>
+        <div id="why">
+            <p>Earlier ullvischema.tk used ID-numbers to access the schedules, and the computer had to "remember" your ID-number to be able to "remember" your schedule. What the computer did to remember the ID-number was to store it in ullvischema's localStorage, with questionable security. Fortunately I have found another way. NovaSoftware left a list of tags with corresponding users in their source code. The tags works excacly like the ID-numbers, which is why i decided to completely abandon the old method. I copied the list to my code, and now I need to know who you are to find your tag. Once again, this is a one time process only.</p>
+        </div>
+
+        <!-- script.js -->
+        <script src="script.js"></script>
+    </body>
+</html>
