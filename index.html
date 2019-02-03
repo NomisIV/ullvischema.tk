@@ -1,0 +1,78 @@
+<!DOCTYPE HTML>
+<html>
+    <head>
+        <title>Schedule</title>
+        <link rel="shortcut icon" href="ullvi.ico"/>
+
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        
+        <!-- Bootstrap.css -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+        
+        <!-- Datepicker.css -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/css/bootstrap-datepicker3.min.css">
+        
+        <!-- jQuery.js -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+        
+        <!-- Bootstrap.js -->
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+        
+        <!-- Datepicker.js -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.8.0/js/bootstrap-datepicker.min.js"></script>
+
+        <!-- style.css -->
+        <link rel="stylesheet" href="style.css">
+    </head>
+    <body onload="getTime(), schedule()" onresize="schedule()">
+        
+        <!-- Menu bar -->
+        <div class="center">
+            <div class="spacer-left">
+                <select id="users" onchange="schedule()"></select>
+            </div>
+            
+            <!-- Datebar -->
+            <div class="datebar">
+                <input type="button" value="Previous" onclick="prev()">
+                <input type="input" id="datepicker" onchange="schedule()">
+                <input type="button" value="Next" onclick="next()">
+            </div>
+
+            <!-- Clock -->
+            <div id="clock"></div>
+        </div>
+        
+        <!-- Schedule -->
+        <img id="schedule" alt="Schedule">
+    </body>
+    <footer style="margin-top: 20px">
+        <div class="center">
+            <p><a href="settings">Settings</a> | <a href="http://www.qbgraphics.tk">QB Graphics</a> | <script src="mail.js" type="text/javascript"></script></p>
+            <p>Made by: Simon Gutgesell 17TE</p>
+            <p>Version 5.2</p>
+        </div>
+
+        <!-- script.js -->
+        <script src="script.js"></script>
+        
+        <!-- Datepicker setup -->
+        <script>
+            $('#datepicker').datepicker({
+                format: "M d",
+                weekStart: 1,
+                maxViewMode: 1,
+                startDate: "Jan 9",
+                endDate: "Jun 14",
+                orientation: "bottom auto",
+                daysOfWeekDisabled: "0,6",
+                autoclose: true,
+                todayHighlight: true
+            });
+            
+            //Datepicker day
+            $("#datepicker").datepicker("setUTCDate", new Date());
+        </script>
+    </footer>
+</html>

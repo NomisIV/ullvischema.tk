@@ -1,0 +1,84 @@
+::-webkit-scrollbar {
+    display: none;
+}
+
+.center {
+    text-align: center;
+    height: 26px;
+    margin: 8px 0 4px;
+}
+
+.spacer-left {
+    float: left;
+    width: calc(50% - 8px - 118px);
+    margin-left: 8px;
+}
+
+select {
+    float: left;
+    width: 100%;
+    max-width: max-content;
+    height: 26px;
+    -webkit-appearance: none;
+    border: 2px solid #4c4caf;
+    background-color: white;
+    color: #4c4caf;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font: 14px arial;
+    cursor: pointer;
+}
+
+select:hover {
+    background-color: #4c4caf;
+    color: white;
+}
+
+.datebar {
+    float: left;
+    width: 236px;
+}
+
+input[type=button] {
+    -webkit-appearance: none;
+    min-width: 70px;
+    border: 2px solid #4CAF50;
+    background-color: white;
+    color: #4CAF50;
+    margin: 0;
+    padding: 3px;
+    border-radius: 4px;
+    text-align: center;
+    font: 14px arial;
+    cursor: pointer;
+}
+
+input[type=button]:hover {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#datepicker {
+    width: 60px;
+    padding: 3px;
+    border: 2px solid dimgray;
+    border-radius: 4px;
+    font: 14px arial;
+    color: dimgray;
+    text-align: center;
+    cursor: pointer;
+}
+
+#clock {
+    float: right;
+    width: calc(50% - 118px - 8px);
+    height: 26px;
+    margin-right: 8px;
+    text-align: right;
+    font-size: 20px;
+}
+
+#schedule {
+    display: block;
+    margin: auto;
+}
