@@ -1,5 +1,5 @@
 # Ullvischema
-Ullvischema is a schedule generator for Ullvigymnasiet in Köping Sweden. It is using on NovaSoftwares' schedule generator, but it displays the schedule more user-friendly.
+Ullvischema is a schedule generator for Ullvigymnasiet in Köping Sweden. It is using [NovaSoftwares' schedule generator](http://www.novasoftware.se/WebViewer/(S(cgwqhhuyvs52nt45qud0zxun))/design1.aspx?schoolid=55860), but it displays the schedule more user-friendly.
 
 ## How Ullvischema works:
 The first time you open Ullvischema on a new unit, you will be redirected to the /new-page where you "register". By selecting your class and your name Ullvischema can map your identity to a unique tag from a list i "stole" from NovaSoftware. (I copied a list from their website's source code.) The tag, as well as the personal ID-number of the student, can be passed as a variable to their schedule generator, which then returns the schedule.
