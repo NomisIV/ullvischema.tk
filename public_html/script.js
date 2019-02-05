@@ -30,16 +30,10 @@ function next() {
     schedule();
 }
 
-const d = new Date();
 
 // Uncomment when outside beta
 //localStorage.id = undefined;
 let users = JSON.parse(localStorage.users || "{}");
-if (users[0]) {
-    alert("Due to a change in the data-structure, and me being to lazy to write a translating algorithm, I ask you to press OK and select your class and name again. This is unfortunate, and I hope nothing like this will happen again in the future. However this is to expect using the beta version, as it is yet not finalized. One step backwards leads to two steps forwards. Thank you for your patience.");
-    localStorage.users = "";
-    window.location.href = "new";
-}
 if (Object.keys(users).length == 0) window.location.href = "new";
 
 // User selection
@@ -55,8 +49,8 @@ function schedule() {
     
     // TAG
     const tag = document.getElementById("users").value || users[Object.keys(users)[0]];
-
-    let d = new Date($("#datepicker").datepicker("getUTCDate"));
+    
+    const d = new Date($("#datepicker").datepicker("getUTCDate"));
 
     // WEEK
     let week = d.getWeekNumber();
