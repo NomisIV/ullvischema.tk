@@ -54,7 +54,7 @@ for (const n in users) {
 function schedule() {
     
     // TAG
-    const tag = document.getElementById('users').value || users[Object.keys(users)[0]];
+    const tag = document.getElementById("users").value || users[Object.keys(users)[0]];
 
     let d = new Date($("#datepicker").datepicker("getUTCDate"));
 
