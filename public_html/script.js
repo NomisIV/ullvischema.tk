@@ -7,34 +7,35 @@ Date.prototype.getWeekNumber = function() {
 };
 
 function prev() {
-    let d = new Date($("#datepicker").datepicker("getUTCDate"));
-    let n;
-    if (window.innerHeight > window.innerWidth * Math.sqrt(2)) {
-        n = new Date(d.setDate(d.getDate() - 1)); //Minus a day
-    } else {
-        n = new Date(d.setDate(d.getDate() - 7)); //Minus a week
-    }
-    $("#datepicker").datepicker("setUTCDate", n);
-    schedule();
+    const d = datepicker.getDate();
+    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ? new Date(d.getTime() - WEEK) : new Date(d.getTime() - DAY);
+    datepicker.setDate(n);
 }
 
 function next() {
-    let d = new Date($("#datepicker").datepicker("getUTCDate"));
-    let n;
-    if (window.innerHeight > window.innerWidth * Math.sqrt(2)) {
-        n = new Date(d.setDate(d.getDate() + 1)); //Plus a day
-    } else {
-        n = new Date(d.setDate(d.getDate() + 7)); //Plus a week
-    }
-    $("#datepicker").datepicker("setUTCDate", n);
-    schedule();
+    const d = datepicker.getDate();
+    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ? new Date(d.getTime() + WEEK) : new Date(d.getTime() + DAY);
+    datepicker.setDate(n);
 }
 
-
-// Uncomment when outside beta
-//localStorage.id = undefined;
+localStorage.id = undefined;
 let users = JSON.parse(localStorage.users || "{}");
 if (Object.keys(users).length == 0) window.location.href = "new";
+
+const datepicker = new Datepicker(document.getElementById("datepicker"));
+datepicker.config({
+    firstdate: new Date(2019, 0, 9),
+    lastdate: new Date(2019, 5, 14),
+    disableddays: d => { return (d.getDay() < 5); },
+    format: d => {
+        return (
+            window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+                "Week " + d.getWeekNumber() :
+                months_short[d.getMonth()] + " " + d.getDate() 
+        );
+    }
+});
+datepicker.setDate(new Date());
 
 // User selection
 for (const n in users) {
@@ -46,29 +47,40 @@ for (const n in users) {
 
 // Load schedule
 function schedule() {
+    console.log("Update");
     
     // TAG
     const tag = document.getElementById("users").value || users[Object.keys(users)[0]];
     
-    const d = new Date($("#datepicker").datepicker("getUTCDate"));
-
+    datepicker.config({
+        format: d => {
+            return (
+                window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+                    "Week " + d.getWeekNumber() :
+                    months_short[d.getMonth()] + " " + d.getDate()
+            );
+        }
+    });
+    
+    const date = datepicker.getDate();
+    
     // WEEK
-    let week = d.getWeekNumber();
+    let week = date.getWeekNumber();
 
     // DAY
     let day;
     if (window.innerHeight > window.innerWidth * Math.sqrt(2)) {
-        if (d.getDay() == 0 || d.getDay() == 6) {
+        if (date.getDay() == 0 || date.getDay() == 6) {
             day = 1;
             week++;
         }
         else {
-            day = Math.pow(2, d.getDay() - 1);
+            day = Math.pow(2, date.getDay() - 1);
         }
     }
     else {
         // If (weekend) then: next week
-        if (d.getDay() == 0 || d.getDay() == 6) {
+        if (date.getDay() == 0 || date.getDay() == 6) {
             week++;
         }
 
