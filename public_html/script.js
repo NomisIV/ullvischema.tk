@@ -47,7 +47,6 @@ for (const n in users) {
 
 // Load schedule
 function schedule() {
-    console.log("Update");
     
     // TAG
     const tag = document.getElementById("users").value || users[Object.keys(users)[0]];
