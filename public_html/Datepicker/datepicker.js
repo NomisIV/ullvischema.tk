@@ -46,6 +46,7 @@ class Datepicker {
         });
         
         this.load = function () {
+            console.log("Date", t.date);
             if (document.getElementById("datepicker-frame")) t.frame = document.getElementById("datepicker-frame");
             else {
                 t.frame = document.createElement("div");
@@ -174,16 +175,18 @@ class Datepicker {
         else if (typeof this.disableddays != "function") console.error("disableddays is not of type function");
         else if (typeof this.format != "function") console.error("format is not of type function");
         
-        const d = new Date();
-        this.date = (
-            this.firstdate && this.lastdate ? (
-                d.getTime() >= this.firstdate.getTime() && d.getTime() <= this.lastdate.getTime() ? d : this.firstdate
-            ) : this.firstdate ? (
-                d.getTime() >= this.firstdate.getTime() ? d : this.firstdate
-            ) : this.lastdate ? (
-                d.getTime() <= this.lastdate.getTime() ? d : this.lastdate
-            ) : d
-        );
+        if (!this.date) {
+            const d = new Date();
+            this.date = (
+                this.firstdate && this.lastdate ? (
+                    d.getTime() >= this.firstdate.getTime() && d.getTime() <= this.lastdate.getTime() ? d : this.firstdate
+                ) : this.firstdate ? (
+                    d.getTime() >= this.firstdate.getTime() ? d : this.firstdate
+                ) : this.lastdate ? (
+                    d.getTime() <= this.lastdate.getTime() ? d : this.lastdate
+                ) : d
+            );
+        }
         
         this.host.value = this.format(this.date);
     }
@@ -193,10 +196,13 @@ class Datepicker {
     }
     
     setDate(date) {
+        console.log("Set date ", date);
         if (!this.disableddays(date)) return ("ERR_DISABLED");
         this.date = date;
         this.host.value = this.format(date);
+        console.log(this.host.value);
         this.load();
+        console.log(this.host.onchange);
         if(typeof this.host.onchange == "function") this.host.onchange();
     }
 }
