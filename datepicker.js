@@ -130,7 +130,7 @@ class Datepicker {
                     class_name += day.toDateString() == new Date().toDateString() ? " today" : "";
 
                     td.className = class_name;
-                    td.onclick = class_name == "pointer" ? (() => { selectDate(day); }) : undefined;
+                    td.onclick = class_name != "disabled" ? (() => { selectDate(day); }) : undefined;
                     index++;
                 }
             }
@@ -174,19 +174,17 @@ class Datepicker {
         else if (typeof this.disableddays != "function") console.error("disableddays is not of type function");
         else if (typeof this.format != "function") console.error("format is not of type function");
         
-        if (!this.date) {
-            const d = new Date();
-            this.date = (
-                this.firstdate && this.lastdate ? (
-                    d.getTime() >= this.firstdate.getTime() && d.getTime() <= this.lastdate.getTime() ? d : this.firstdate
-                ) : this.firstdate ? (
-                    d.getTime() >= this.firstdate.getTime() ? d : this.firstdate
-                ) : this.lastdate ? (
-                    d.getTime() <= this.lastdate.getTime() ? d : this.lastdate
-                ) : d
-            );
-        }
-        if(!this.host.value) this.host.value = this.format(this.date);
+        const d = new Date();
+        this.date = this.date || (
+            this.firstdate && this.lastdate ? (
+                d.getTime() >= this.firstdate.getTime() && d.getTime() <= this.lastdate.getTime() ? d : this.firstdate
+            ) : this.firstdate ? (
+                d.getTime() >= this.firstdate.getTime() ? d : this.firstdate
+            ) : this.lastdate ? (
+                d.getTime() <= this.lastdate.getTime() ? d : this.lastdate
+            ) : d
+        );
+        this.host.value = this.format(this.date);
     }
     
     getDate() {
