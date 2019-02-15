@@ -15,9 +15,7 @@ function prev() {
 function next() {
     const d = datepicker.getDate();
     const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ? new Date(d.getTime() + WEEK) : new Date(d.getTime() + DAY);
-    const dateSet = datepicker.setDate(n);
-    if (dateSet == "ERR_DISABLED") console.log("Disabled");
-    console.log(datepicker.getDate());
+    datepicker.setDate(n);
 }
 
 localStorage.id = undefined;
