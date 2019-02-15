@@ -1,0 +1,3 @@
+[submodule "public_html/Datepicker"]
+	path = public_html/Datepicker
+	url = git@github.com:TheOfficialSimon/Datepicker.git
