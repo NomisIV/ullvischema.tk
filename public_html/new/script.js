@@ -10,14 +10,14 @@ let students;
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
-       students = JSON.parse(xhttp.responseText);
+        students = JSON.parse(xhttp.responseText);
     }
 };
 xhttp.open("GET", "../students.json", false);
 xhttp.send();
 
 for (const class_name in students) {
-    opt = document.createElement("option");
+    let opt = document.createElement("option");
     opt.value = class_name;
     opt.innerHTML = class_name;
     document.getElementById("class_list").append(opt);
@@ -40,7 +40,7 @@ function getNameList() {
             if (u == name) exists = true;
         }
         
-        opt = document.createElement("option");
+        let opt = document.createElement("option");
         if (exists) opt.disabled = true;
         opt.value = name;
         opt.innerHTML = name;
@@ -49,7 +49,7 @@ function getNameList() {
 }
 
 function activateSubmitButton() {
-    document.getElementById('submit').disabled = document.getElementById("name_list").value == 'not chosen';
+    document.getElementById("submit").disabled = document.getElementById("name_list").value == "not chosen";
 }
 
 function submit() {

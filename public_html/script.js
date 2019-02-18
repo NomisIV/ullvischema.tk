@@ -7,40 +7,35 @@ Date.prototype.getWeekNumber = function() {
 };
 
 function prev() {
-    let d = new Date($("#datepicker").datepicker("getUTCDate"));
-    let n;
-    if (window.innerHeight > window.innerWidth * Math.sqrt(2)) {
-        n = new Date(d.setDate(d.getDate() - 1)); //Minus a day
-    } else {
-        n = new Date(d.setDate(d.getDate() - 7)); //Minus a week
-    }
-    $("#datepicker").datepicker("setUTCDate", n);
-    schedule();
+    const d = datepicker.getDate();
+    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ? new Date(d.getTime() - WEEK) : new Date(d.getTime() - DAY);
+    datepicker.setDate(n);
 }
 
 function next() {
-    let d = new Date($("#datepicker").datepicker("getUTCDate"));
-    let n;
-    if (window.innerHeight > window.innerWidth * Math.sqrt(2)) {
-        n = new Date(d.setDate(d.getDate() + 1)); //Plus a day
-    } else {
-        n = new Date(d.setDate(d.getDate() + 7)); //Plus a week
-    }
-    $("#datepicker").datepicker("setUTCDate", n);
-    schedule();
+    const d = datepicker.getDate();
+    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ? new Date(d.getTime() + WEEK) : new Date(d.getTime() + DAY);
+    datepicker.setDate(n);
 }
 
-const d = new Date();
-
-// Uncomment when outside beta
-//localStorage.id = undefined;
+localStorage.id = undefined;
 let users = JSON.parse(localStorage.users || "{}");
-if (users[0]) {
-    alert("Due to a change in the data-structure, and me being to lazy to write a translating algorithm, I ask you to press OK and select your class and name again. This is unfortunate, and I hope nothing like this will happen again in the future. However this is to expect using the beta version, as it is yet not finalized. One step backwards leads to two steps forwards. Thank you for your patience.");
-    localStorage.users = "";
-    window.location.href = "new";
-}
 if (Object.keys(users).length == 0) window.location.href = "new";
+
+const datepicker = new Datepicker(document.getElementById("datepicker"));
+datepicker.config({
+    firstdate: new Date(2019, 0, 9),
+    lastdate: new Date(2019, 5, 14),
+    disableddays: d => { return (d.getDay() > 0 && d.getDay() < 6); },
+    format: d => {
+        return (
+            window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+                "Week " + d.getWeekNumber() :
+                months_short[d.getMonth()] + " " + d.getDate() 
+        );
+    }
+});
+datepicker.setDate(new Date());
 
 // User selection
 for (const n in users) {
@@ -54,35 +49,38 @@ for (const n in users) {
 function schedule() {
     
     // TAG
-    const tag = document.getElementById('users').value || users[Object.keys(users)[0]];
-
-    let d = new Date($("#datepicker").datepicker("getUTCDate"));
-
+    const tag = document.getElementById("users").value || users[Object.keys(users)[0]];
+    
+    datepicker.config({
+        format: d => {
+            return (
+                window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+                    "Week " + d.getWeekNumber() :
+                    months_short[d.getMonth()] + " " + d.getDate()
+            );
+        }
+    });
+    
+    const date = datepicker.getDate();
+    
     // WEEK
-    let week = d.getWeekNumber();
+    let week = date.getWeekNumber();
 
     // DAY
     let day;
     if (window.innerHeight > window.innerWidth * Math.sqrt(2)) {
-        if (d.getDay() == 0 || d.getDay() == 6) {
+        if (date.getDay() == 0 || date.getDay() == 6) {
             day = 1;
             week++;
         }
-        else {
-            day = Math.pow(2, d.getDay() - 1);
-        }
-    }
-    else {
-        // If (weekend) then: next week
-        if (d.getDay() == 0 || d.getDay() == 6) {
-            week++;
-        }
-
+        else day = Math.pow(2, date.getDay() - 1);
+    } else {
+        if (date.getDay() == 0 || date.getDay() == 6) week++;
         day = 0;
     }
 
     let width = window.innerWidth - 16;
-    let height = window.innerHeight - 46;
+    let height = window.innerHeight - 49;
 
     let url = "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=55860/sv-se&type=-1&id=" + tag + "&period=&week=" + week + "&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=" + day + "&width=" + width + "&height=" + height + "&maxwidth=0&maxheight=0";
     document.getElementById("schedule").src = url;
