@@ -48,8 +48,6 @@ for (const n in users) {
 // Load schedule
 function schedule() {
     
-    // Headern på schemat tar upp ~5.8% av höjden
-    
     // TAG
     const tag = document.getElementById("users").value || users[Object.keys(users)[0]];
     
