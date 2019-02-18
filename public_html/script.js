@@ -14,9 +14,8 @@ function prev() {
 
 function next() {
     const d = datepicker.getDate();
-    console.log(d);
     const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ? new Date(d.getTime() + WEEK) : new Date(d.getTime() + DAY);
-    console.log(datepicker.setDate(n));
+    datepicker.setDate(n);
 }
 
 localStorage.id = undefined;
