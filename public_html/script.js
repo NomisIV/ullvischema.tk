@@ -26,7 +26,7 @@ const datepicker = new Datepicker(document.getElementById("datepicker"));
 datepicker.config({
     firstdate: new Date(2019, 0, 9),
     lastdate: new Date(2019, 5, 14),
-    disableddays: d => { return (d.getDay() < 5); },
+    disableddays: d => { return (d.getDay() > 0 && d.getDay() < 6); },
     format: d => {
         return (
             window.innerHeight < window.innerWidth * Math.sqrt(2) ?
@@ -47,6 +47,8 @@ for (const n in users) {
 
 // Load schedule
 function schedule() {
+    
+    // Headern på schemat tar upp ~5.8% av höjden
     
     // TAG
     const tag = document.getElementById("users").value || users[Object.keys(users)[0]];
@@ -73,21 +75,14 @@ function schedule() {
             day = 1;
             week++;
         }
-        else {
-            day = Math.pow(2, date.getDay() - 1);
-        }
-    }
-    else {
-        // If (weekend) then: next week
-        if (date.getDay() == 0 || date.getDay() == 6) {
-            week++;
-        }
-
+        else day = Math.pow(2, date.getDay() - 1);
+    } else {
+        if (date.getDay() == 0 || date.getDay() == 6) week++;
         day = 0;
     }
 
     let width = window.innerWidth - 16;
-    let height = window.innerHeight - 46;
+    let height = window.innerHeight - 49;
 
     let url = "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=55860/sv-se&type=-1&id=" + tag + "&period=&week=" + week + "&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=" + day + "&width=" + width + "&height=" + height + "&maxwidth=0&maxheight=0";
     document.getElementById("schedule").src = url;
