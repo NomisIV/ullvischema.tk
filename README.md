@@ -1,3 +1,3 @@
-# Ullvischema - Beta
+# Ullvischema - Alpha
 
-This is the beta version of Ullvischema, for full documentation view the master branch.
+This is the alpha version of Ullvischema, for full documentation view the master branch.
