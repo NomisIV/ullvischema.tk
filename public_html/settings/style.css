@@ -30,6 +30,10 @@ input[type=button][class=delete] {
     color: dimgray;
 }
 
+#clock {
+    font: 26px arial;
+}
+
 .toggle, select {
     float: right;
 }
