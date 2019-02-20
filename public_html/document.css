@@ -1,0 +1,121 @@
+input[type=button], button, .button {
+    -webkit-appearance: none;
+    min-width: 70px;
+    border: 2px solid #4CAF50;
+    background-color: unset;
+    color: #4CAF50;
+    margin: 0;
+    padding: 3px 6px;
+    border-radius: 4px;
+    text-align: center;
+    font: 14px arial;
+    cursor: pointer;
+}
+
+input[type=button]:hover:enabled, button:hover:enabled, .button:hover:enabled {
+    background-color: #4CAF50;
+    color: white;
+}
+
+input[type=button]:disabled {
+    filter: grayscale(1);
+}
+
+input[type=button][class=delete] {
+    -webkit-appearance: none;
+    float: right;
+    border: 2px solid #ff5b5b;
+    background-color: unset;
+    color: #ff5b5b;
+    margin: 0;
+    padding: 3px 6px;
+    border-radius: 4px;
+    text-align: center;
+    font: 14px arial;
+    cursor: pointer;
+}
+
+input[type=button][class=delete]:hover {
+    background-color: #ff5b5b;
+    color: white;
+}
+
+.toggle {
+    display: inline-block;
+    width: 48px;
+    height: 24px;
+    background-color: lightgrey;
+    border-radius: 12px;
+    cursor: pointer;
+}
+
+.toggle input {
+    display: none;
+}
+
+.toggle span {
+    content: "";
+    display: inline-block;
+    position: relative;
+    left: 0;
+    top: 0;
+    width: 50%;
+    height: 100%;
+    border-radius: 50%;
+    background-color: #ff5b5b;
+}
+
+.toggle input:checked+span {
+    background-color: #4CAF50;
+    border-color: #4CAF50;
+    left: 24px;
+}
+
+.center {
+    text-align: center;
+}
+
+select {
+    width: 100%;
+    max-width: max-content;
+    height: 26px;
+    -webkit-appearance: none;
+    border: 2px solid #4c4caf;
+    background-color: unset;
+    color: #4c4caf;
+    padding: 3px 6px;
+    border-radius: 4px;
+    font: 14px arial;
+    cursor: pointer;
+}
+
+select:disabled {
+    filter: grayscale(1);
+}
+
+select:hover:enabled {
+    background-color: #4c4caf;
+    color: white;
+}
+
+h1 {
+    font: 24px arial;
+}
+
+h2 {
+    font: 20px arial;
+}
+
+p {
+    font: 14px arial;
+}
+
+a {
+    color: #4e4caf;
+    font: 14px arial;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration-line: underline;
+}

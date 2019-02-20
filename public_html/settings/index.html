@@ -7,29 +7,43 @@
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         
+        <!-- document.css -->
+        <link rel="stylesheet" href="../document.css">
+        
         <!-- style.css -->
         <link rel="stylesheet" href="style.css">
 
         <!-- script.js -->
         <script src="script.js"></script>
     </head>
-    <body onload="getSettings()">
+    <body onload="getSettings(), darkmode()">
         <div>
-            <div>
-                <h1>Profiles:</h1>
-                <ul id="profiles"></ul>
-                <a href="../new" class="button">Add profile</a>
-            </div>
-        
-            <div>
-                <h1>Display seconds in clock:</h1>
-                <p>
-                    <input type="radio" name="seconds" id="true">Yes<br>
-                    <input type="radio" name="seconds" id="false">No
-                </p>
-            </div>
-            <input type="button" value="Save changes" class="button" onclick="submit()">
-            <input type="button" value="Undo changes" class="button" onclick="window.location.reload()">
+            <h1>Profiles:</h1><br>
+            <ul id="profiles"></ul>
+            <a href="../new" class="button">Add profile</a>
         </div>
+    
+        <div>
+            <h1>Display seconds in clock</h1>
+            <label class="toggle">
+                <input type="checkbox" id="seconds">
+                <span></span>
+            </label>
+        </div>
+        
+        <div>
+            <h1>Dark mode</h1>
+            <label class="toggle">
+                <input type="checkbox" id="darkmode">
+                <span></span>
+            </label>
+        </div>
+        
+        <div>
+            <h1>Schedule color theme</h1>
+            <select id="theme"></select>
+        </div>
+        <input type="button" value="Save changes" onclick="submit()">
+        <input type="button" value="Undo changes" onclick="window.location.reload()">
     </body>
 </html>

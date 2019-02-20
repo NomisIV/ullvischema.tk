@@ -18,6 +18,17 @@ function next() {
     datepicker.setDate(n);
 }
 
+// Darkmode
+function darkmode() {
+    document.body.style.backgroundColor = localStorage.darkmode == "true" ? "#262626" : "#ffffff";
+    document.body.style.color = localStorage.darkmode == "true" ? "#d9d9d9" : "#333333";
+}
+
+// Theme
+document.getElementById("schedule").style.filter =
+    "hue-rotate(" + localStorage.theme + "deg)" +
+    (localStorage.darkmode == "true" ? " invert(0.85)" : "");
+
 localStorage.id = undefined;
 let users = JSON.parse(localStorage.users || "{}");
 if (Object.keys(users).length == 0) window.location.href = "new";

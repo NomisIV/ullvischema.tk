@@ -13,11 +13,14 @@
         <!-- Datepicker.js -->
         <script src="Datepicker/datepicker.js"></script>
         
+        <!-- document.css -->
+        <link rel="stylesheet" href="document.css">
+        
         <!-- style.css -->
         <link rel="stylesheet" href="style.css">
         
     </head>
-    <body onload="getTime(), schedule()" onresize="schedule()">
+    <body onload="getTime(), schedule(), darkmode()" onresize="schedule()">
         
         <!-- Menu bar -->
         <div class="center">
@@ -38,6 +41,7 @@
         
         <!-- Schedule -->
         <img id="schedule" alt="Schedule">
+        
         <footer style="margin-top: 20px">
             <div class="center">
                 <p><a href="settings">Settings</a> | <a href="http://www.ullvischema.tk">Lastest stable release</a> | <script src="mail.js" type="text/javascript"></script></p>
