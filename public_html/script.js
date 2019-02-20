@@ -98,6 +98,7 @@ function schedule() {
     let url = "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=55860/sv-se&type=-1&id=" + tag + "&period=&week=" + week + "&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=" + day + "&width=" + width + "&height=" + height + "&maxwidth=0&maxheight=0";
     document.getElementById("schedule").src = url;
 }
+window.onresize = schedule;
 
 // Clock
 function getTime() {
