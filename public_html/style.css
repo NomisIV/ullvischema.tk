@@ -42,14 +42,12 @@ select {
     height: 26px;
     line-height: 26px;
     text-align: right;
-    font-size: 26px;
+    font: 26px arial;
 }
 
 #schedule {
     display: block;
     margin: auto;
-    /* filter:
-        saturation(-1); */
 }
 
 p {
