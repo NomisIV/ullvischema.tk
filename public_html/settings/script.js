@@ -41,7 +41,7 @@ function getSettings() {
     
     // Theme
     const theme = document.getElementById("theme");
-    const themes = 4;
+    const themes = 8;
     for (let n = 0; n < themes; n++) {
         const opt = document.createElement("option");
         theme.append(opt);
