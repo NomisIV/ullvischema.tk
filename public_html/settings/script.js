@@ -49,6 +49,7 @@ function getSettings() {
         opt.innerHTML = "Theme " + (n + 1);
     }
     theme.value = localStorage.theme || "0deg";
+    // TODO: Add random theme
 }
 
 function removeProfile(name) {
