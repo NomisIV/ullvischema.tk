@@ -19,6 +19,7 @@ input[type=button]:hover:enabled, button:hover:enabled, .button:hover:enabled {
 
 input[type=button]:disabled {
     filter: grayscale(1);
+    cursor: default;
 }
 
 input[type=button][class=delete] {
@@ -91,6 +92,7 @@ select {
 
 select:disabled {
     filter: grayscale(1);
+    cursor: default;
 }
 
 select:hover:enabled {
