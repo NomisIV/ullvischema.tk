@@ -8,13 +8,17 @@ Date.prototype.getWeekNumber = function() {
 
 function prev() {
     const d = datepicker.getDate();
-    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ? new Date(d.getTime() - WEEK) : new Date(d.getTime() - DAY);
+    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+        new Date(d.getTime() - WEEK) :
+        new Date(d.getDay() > 1 ? d.getTime() - DAY : d.getTime() - 3 * DAY);
     datepicker.setDate(n);
 }
 
 function next() {
     const d = datepicker.getDate();
-    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ? new Date(d.getTime() + WEEK) : new Date(d.getTime() + DAY);
+    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+        new Date(d.getTime() + WEEK) :
+        new Date(d.getDay() < 6 ? d.getTime() + DAY : d.getTime() + 3 * DAY);
     datepicker.setDate(n);
 }
 
