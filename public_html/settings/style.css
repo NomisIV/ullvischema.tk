@@ -25,7 +25,7 @@ input[type=button][class=delete] {
 
 #profiles li {
     width: 260px;
-    height: 28px;
+    height: 30px;
     font: 16px arial;
     line-height: 28px;
 }
