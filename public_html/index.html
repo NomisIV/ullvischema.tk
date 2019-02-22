@@ -30,13 +30,13 @@
             
             <!-- Datebar -->
             <div class="datebar">
-                <input type="button" value="Previous" onclick="prev()">
+                <input type="button" value="<<" onclick="prev()">
                 <input type="text" id="datepicker" onchange="schedule()">
-                <input type="button" value="Next" onclick="next()">
+                <input type="button" value=">>" onclick="next()">
             </div>
             
             <!-- Clock -->
-            <div id="clock"></div>
+            <div id="clock" class="noselect"></div>
         </div>
         
         <!-- Schedule -->

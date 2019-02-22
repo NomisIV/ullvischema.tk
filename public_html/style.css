@@ -10,7 +10,7 @@
 
 .spacer-left {
     float: left;
-    width: calc(50% - 110px);
+    width: calc(50% - 84px);
 }
 
 select {
@@ -21,7 +21,7 @@ select {
 
 .datebar {
     float: left;
-    width: 220px;
+    width: 168px;
 }
 
 #datepicker {
@@ -36,9 +36,13 @@ select {
     cursor: pointer;
 }
 
+input[type=button] {
+    min-width: 40px;
+}
+
 #clock {
     float: right;
-    width: calc(50% - 110px);
+    width: calc(50% - 84px);
     height: 26px;
     line-height: 26px;
     text-align: right;
