@@ -1,7 +1,7 @@
 <!DOCTYPE HTML>
 <html lang="en">
     <head>
-      <title>Schedule</title>
+        <title>Schedule Alpha</title>
         <link rel="shortcut icon" href="ullvi.ico"/>
 
         <meta charset="utf-8">
@@ -13,10 +13,14 @@
         <!-- Datepicker.js -->
         <script src="Datepicker/datepicker.js"></script>
         
+        <!-- document.css -->
+        <link rel="stylesheet" href="document.css">
+        
         <!-- style.css -->
         <link rel="stylesheet" href="style.css">
+        
     </head>
-    <body onload="getTime(), schedule()" onresize="schedule()">
+    <body onload="getTime(), schedule(), darkmode()">
         
         <!-- Menu bar -->
         <div class="center">
@@ -26,23 +30,23 @@
             
             <!-- Datebar -->
             <div class="datebar">
-                <input type="button" value="Previous" onclick="prev()">
+                <input type="button" value="<<" onclick="prev()">
                 <input type="text" id="datepicker" onchange="schedule()">
-                <input type="button" value="Next" onclick="next()">
+                <input type="button" value=">>" onclick="next()">
             </div>
-          
+            
             <!-- Clock -->
-            <div id="clock"></div>
+            <div id="clock" class="noselect"></div>
         </div>
         
         <!-- Schedule -->
         <img id="schedule" alt="Schedule">
-      
+        
         <footer style="margin-top: 20px">
             <div class="center">
-                <p><a href="settings">Settings</a> | <a href="http://beta.ullvischema.tk">Beta version</a> | <script src="mail.js" type="text/javascript"></script></p>
+                <p><a href="settings">Settings</a> | <a href="http://www.ullvischema.tk">Lastest stable release</a> | <script src="mail.js" type="text/javascript"></script></p>
                 <p>Made by: Simon Gutgesell 17TE</p>
-                <p>Version 6.1</p><br>
+                <p>Version 6.2 (Alpha)</p><br>
             </div>
         </footer>
         <!-- script.js -->

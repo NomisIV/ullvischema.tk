@@ -10,56 +10,24 @@
 
 .spacer-left {
     float: left;
-    width: calc(50% - 110px);
+    width: calc(50% - 84px);
 }
 
 select {
     float: left;
     width: 100%;
     max-width: max-content;
-    height: 26px;
-    -webkit-appearance: none;
-    border: 2px solid #4c4caf;
-    background-color: white;
-    color: #4c4caf;
-    padding: 3px 6px;
-    border-radius: 4px;
-    font: 14px arial;
-    cursor: pointer;
-}
-
-select:hover {
-    background-color: #4c4caf;
-    color: white;
 }
 
 .datebar {
     float: left;
-    width: 220px;
-}
-
-input[type=button] {
-    -webkit-appearance: none;
-    min-width: 70px;
-    border: 2px solid #4CAF50;
-    background-color: white;
-    color: #4CAF50;
-    margin: 0;
-    padding: 3px;
-    border-radius: 4px;
-    text-align: center;
-    font: 14px arial;
-    cursor: pointer;
-}
-
-input[type=button]:hover {
-    background-color: #4CAF50;
-    color: white;
+    width: 168px;
 }
 
 #datepicker {
     width: 60px;
     padding: 3px;
+    background-color: unset;
     border: 2px solid dimgray;
     border-radius: 4px;
     font: 14px arial;
@@ -68,14 +36,17 @@ input[type=button]:hover {
     cursor: pointer;
 }
 
+input[type=button] {
+    min-width: 40px;
+}
+
 #clock {
     float: right;
-    width: calc(50% - 110px);
+    width: calc(50% - 84px);
     height: 26px;
     line-height: 26px;
     text-align: right;
-    font-size: 26px;
-    color: #333333;
+    font: 26px arial;
 }
 
 #schedule {
@@ -85,7 +56,6 @@ input[type=button]:hover {
 
 p {
     font: 14px Arial;
-    color: #333333;
 }
 
 a {

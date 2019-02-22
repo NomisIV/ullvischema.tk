@@ -1,12 +1,11 @@
-function update() {
-    if (localStorage.version != 5.3 && localStorage.users) {
-        alert("Ullvischema has recently moved to another server, and unfortunately the localStorage has changed. This means that the tag used prevoiusly doesn't work anymore. However, I got rid of that ugly webhost-banner at the bottom of the website.");
-        localStorage.version = 5.3;
-    }
+// Darkmode
+function darkmode() {
+    document.body.style.backgroundColor = localStorage.darkmode == "true" ? "#262626" : "#ffffff";
+    document.body.style.color = localStorage.darkmode == "true" ? "#d9d9d9" : "#333333";
 }
 
+// Get list of students from server
 let students;
-
 var xhttp = new XMLHttpRequest();
 xhttp.onreadystatechange = function() {
     if (this.readyState == 4 && this.status == 200) {
@@ -16,6 +15,7 @@ xhttp.onreadystatechange = function() {
 xhttp.open("GET", "../students.json", false);
 xhttp.send();
 
+// Put every class in class_list
 for (const class_name in students) {
     let opt = document.createElement("option");
     opt.value = class_name;
@@ -23,6 +23,7 @@ for (const class_name in students) {
     document.getElementById("class_list").append(opt);
 }
 
+// Get every student in selected class
 function getNameList() {
     document.getElementById("name_list").disabled = false;
 
@@ -48,10 +49,12 @@ function getNameList() {
     }
 }
 
+// Activate submit button when student is chosen
 function activateSubmitButton() {
     document.getElementById("submit").disabled = document.getElementById("name_list").value == "not chosen";
 }
 
+// Submit to localStorage.users
 function submit() {
     const class_name = document.getElementById("class_list").value;
     const name = document.getElementById("name_list").value;

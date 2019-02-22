@@ -8,15 +8,30 @@ Date.prototype.getWeekNumber = function() {
 
 function prev() {
     const d = datepicker.getDate();
-    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ? new Date(d.getTime() - WEEK) : new Date(d.getTime() - DAY);
+    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+        new Date(d.getTime() - WEEK) :
+        new Date(d.getDay() > 1 ? d.getTime() - DAY : d.getTime() - 3 * DAY);
     datepicker.setDate(n);
 }
 
 function next() {
     const d = datepicker.getDate();
-    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ? new Date(d.getTime() + WEEK) : new Date(d.getTime() + DAY);
+    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+        new Date(d.getTime() + WEEK) :
+        new Date(d.getDay() < 6 ? d.getTime() + DAY : d.getTime() + 3 * DAY);
     datepicker.setDate(n);
 }
+
+// Darkmode
+function darkmode() {
+    document.body.style.backgroundColor = localStorage.darkmode == "true" ? "#262626" : "#ffffff";
+    document.body.style.color = localStorage.darkmode == "true" ? "#d9d9d9" : "#333333";
+}
+
+// Theme
+document.getElementById("schedule").style.filter =
+    "hue-rotate(" + localStorage.theme + "deg)" +
+    (localStorage.darkmode == "true" ? " invert(0.85)" : "");
 
 localStorage.id = undefined;
 let users = JSON.parse(localStorage.users || "{}");
@@ -47,6 +62,8 @@ for (const n in users) {
 
 // Load schedule
 function schedule() {
+    
+    // Headern på schemat tar upp ~5.8% av höjden
     
     // TAG
     const tag = document.getElementById("users").value || users[Object.keys(users)[0]];
@@ -85,6 +102,7 @@ function schedule() {
     let url = "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=55860/sv-se&type=-1&id=" + tag + "&period=&week=" + week + "&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=" + day + "&width=" + width + "&height=" + height + "&maxwidth=0&maxheight=0";
     document.getElementById("schedule").src = url;
 }
+window.onresize = schedule;
 
 // Clock
 function getTime() {
