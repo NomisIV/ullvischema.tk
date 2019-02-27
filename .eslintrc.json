@@ -30,9 +30,11 @@
         ]
     },
     "globals": {
-        "Datepicker": "readable",
-        "months_short": "readable",
-        "WEEK": "readable",
-        "DAY": "readable"
+        "Datepicker": "readonly",
+        "months_short": "readonly",
+        "WEEK": "readonly",
+        "DAY": "readonly",
+        "HOUR": "readonly",
+        "MINUTE": "readonly"
     }
 }
