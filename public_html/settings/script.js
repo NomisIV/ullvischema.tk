@@ -48,7 +48,7 @@ function getSettings() {
         opt.value = n * 360 / themes;
         opt.innerHTML = "Theme " + (n + 1);
     }
-    theme.value = localStorage.theme == true ? localStorage.theme : "0";
+    theme.value = localStorage.theme ? localStorage.theme : "0";
     // TODO: Add random theme
 }
 
