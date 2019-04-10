@@ -36,6 +36,9 @@ function getSettings() {
     // Seconds in clock
     document.getElementById("seconds").checked = localStorage.sec == "false" ? false : true;
     
+    // Hairline
+    document.getElementById("hairline").checked = localStorage.hairline == "true" ? true : false;
+    
     // Dark mode
     document.getElementById("darkmode").checked = localStorage.darkmode == "true" ? true : false;
     
@@ -61,10 +64,11 @@ function removeProfile(name) {
 }
 
 function submit() {
-    localStorage.users = JSON.stringify(users);
-    localStorage.sec = document.getElementById("seconds").checked;
+    localStorage.users    = JSON.stringify(users);
+    localStorage.sec      = document.getElementById("seconds") .checked;
+    localStorage.hairline = document.getElementById("hairline").checked;
     localStorage.darkmode = document.getElementById("darkmode").checked;
-    localStorage.theme = document.getElementById("theme").value;
+    localStorage.theme    = document.getElementById("theme")   .value;
 
     window.location.href = "../";
 }

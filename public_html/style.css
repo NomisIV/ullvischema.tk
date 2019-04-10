@@ -54,6 +54,11 @@ input[type=button] {
     margin: auto;
 }
 
+#hairline {
+    position: absolute;
+    height: 1px;
+}
+
 p {
     font: 14px Arial;
 }

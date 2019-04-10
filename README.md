@@ -13,3 +13,4 @@ The first time you open Ullvischema on a new unit, you will be redirected to the
 * Instead of only showing the week-schedule, Ullvischema uses both the week-schedule and day-schedule and choses which format suits the best according to the aspect ratio of the browser window.
 * Instead of chosing which week you want to see, Ullvischema has an integrated datepicker that helps the user chose the right week / day.
 * Instead of having to scroll through the enourmous list of students to find a frined's schedule, Ullvischema supports multiple profiles to easily switch between schedules.
+* Ullvischema also uses an experimental hairline to indicate time directly inside the schedule. Unfortunately it does not work on all schedules, since some schedules start and end at different times.

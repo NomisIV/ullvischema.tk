@@ -18,6 +18,7 @@ function next() {
 function darkmode() {
     document.body.style.backgroundColor = localStorage.darkmode == "true" ? "#262626" : "#ffffff";
     document.body.style.color = localStorage.darkmode == "true" ? "#d9d9d9" : "#333333";
+    document.getElementById("hairline").style.backgroundColor = localStorage.darkmode == "true" ? "#d9d9d9" : "#000000";
 }
 
 // Theme
@@ -95,6 +96,34 @@ function schedule() {
     document.getElementById("schedule").src = url;
 }
 window.onresize = schedule;
+
+//Hairline
+function hairline() {
+    if (localStorage.hairline == "true") {
+        const date = datepicker.getDate();
+        
+        let line;
+        if (document.getElementById("hairline") == undefined) {
+            line = document.createElement("div");
+            document.body.append(line);
+            line.id = "hairline";
+        } else line = document.getElementById("hairline");
+        
+        if (date.getWeekNumber() == new Date().getWeekNumber()) {
+            line.style.display = "initial";
+            
+            let width = window.innerWidth - 17;
+            let height = window.innerHeight - 49;
+    
+            let line_width = Math.floor(width / 5);
+            line.style.width = line_width - (date.getDay() == 3 ? 1 : 0) + "px";
+    
+            let time_factor = ((date.getHours() - 8) * 60 + date.getMinutes() - 20) / 430;
+            line.style.top = 42 + height * 0.0555 + time_factor * (height * 0.9445 - 1) + "px";
+            line.style.left = Math.floor(8 + (date.getDay() - 1) * line_width) + "px";
+        } else line.style.display = "none";
+    }
+}
 
 // Clock
 function getTime() {

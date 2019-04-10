@@ -19,6 +19,14 @@ input[type=button][class=delete] {
     min-width: unset;
 }
 
+span.bold {
+    font-weight: bold;
+}
+
+span.red {
+    color: #FF5b5b;
+}
+
 #profiles {
     width: 300px;
 }
