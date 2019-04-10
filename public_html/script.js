@@ -109,18 +109,24 @@ function hairline() {
             line.id = "hairline";
         } else line = document.getElementById("hairline");
         
-        if (date.getWeekNumber() == new Date().getWeekNumber()) {
+        let time = new Date();
+        
+        if (
+            date.getWeekNumber() == new Date().getWeekNumber() && // DAY
+            time.getTime() % DAY >= 8 * HOUR + 20 * MINUTE && // After 8:20
+            time.getTime() % DAY <= 15 * HOUR + 30 * MINUTE // Before 15:30
+        ) {
             line.style.display = "initial";
             
             let width = window.innerWidth - 17;
             let height = window.innerHeight - 49;
     
             let line_width = Math.floor(width / 5);
-            line.style.width = line_width - (date.getDay() == 3 ? 1 : 0) + "px";
+            line.style.width = (window.innerHeight > window.innerWidth * Math.sqrt(2) ? width : (line_width - (date.getDay() == 3 ? 1 : 0))) + "px";
     
-            let time_factor = ((date.getHours() - 8) * 60 + date.getMinutes() - 20) / 430;
+            let time_factor = ((time.getHours() - 8) * 60 + time.getMinutes() - 20) / 430;
             line.style.top = 42 + height * 0.0555 + time_factor * (height * 0.9445 - 1) + "px";
-            line.style.left = Math.floor(8 + (date.getDay() - 1) * line_width) + "px";
+            line.style.left = (window.innerHeight > window.innerWidth * Math.sqrt(2) ? 8 : Math.floor(8 + (date.getDay() - 1) * line_width)) + "px";
         } else line.style.display = "none";
     }
 }
