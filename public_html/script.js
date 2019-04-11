@@ -1,6 +1,6 @@
 function prev() {
     const d = datepicker.getDate();
-    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+    const n = sessionStorage.ar > 0.8 ?
         new Date(d.getTime() - WEEK) :
         new Date(d.getDay() > 1 ? d.getTime() - DAY : d.getTime() - 3 * DAY);
     datepicker.setDate(n);
@@ -8,7 +8,7 @@ function prev() {
 
 function next() {
     const d = datepicker.getDate();
-    const n = window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+    const n = sessionStorage.ar > 0.8 ?
         new Date(d.getTime() + WEEK) :
         new Date(d.getDay() < 6 ? d.getTime() + DAY : d.getTime() + 3 * DAY);
     datepicker.setDate(n);
@@ -37,7 +37,7 @@ datepicker.config({
     disableddays: d => { return (d.getDay() > 0 && d.getDay() < 6); },
     format: d => {
         return (
-            window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+            sessionStorage.ar > 0.8 ?
                 "Week " + d.getWeekNumber() :
                 months_short[d.getMonth()] + " " + d.getDate() 
         );
@@ -78,7 +78,7 @@ function schedule() {
 
     // DAY
     let day;
-    if (window.innerHeight > window.innerWidth * Math.sqrt(2)) {
+    if (sessionStorage.ar < 0.8) {
         if (date.getDay() == 0 || date.getDay() == 6) {
             day = 1;
             week++;
@@ -95,7 +95,6 @@ function schedule() {
     let url = "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=55860/sv-se&type=-1&id=" + tag + "&period=&week=" + week + "&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=" + day + "&width=" + width + "&height=" + height + "&maxwidth=0&maxheight=0";
     document.getElementById("schedule").src = url;
 }
-window.onresize = schedule;
 
 //Hairline
 function hairline() {
@@ -111,10 +110,11 @@ function hairline() {
         
         let time = new Date();
         
+        
         if (
             date.getWeekNumber() == new Date().getWeekNumber() && // DAY
-            time.getTime() % DAY >= 8 * HOUR + 20 * MINUTE && // After 8:20
-            time.getTime() % DAY <= 15 * HOUR + 30 * MINUTE // Before 15:30
+            time.getHours() * 100 + time.getMinutes() > "820" && // After 08:20
+            time.getHours() * 100 + time.getMinutes() < "1530" // Before 15:30
         ) {
             line.style.display = "initial";
             
@@ -122,11 +122,11 @@ function hairline() {
             let height = window.innerHeight - 49;
     
             let line_width = Math.floor(width / 5);
-            line.style.width = (window.innerHeight > window.innerWidth * Math.sqrt(2) ? width : (line_width - (date.getDay() == 3 ? 1 : 0))) + "px";
+            line.style.width = (sessionStorage.ar < 0.8 ? width : (line_width - (date.getDay() == 3 ? 1 : 0))) + "px";
     
             let time_factor = ((time.getHours() - 8) * 60 + time.getMinutes() - 20) / 430;
             line.style.top = 42 + height * 0.0555 + time_factor * (height * 0.9445 - 1) + "px";
-            line.style.left = (window.innerHeight > window.innerWidth * Math.sqrt(2) ? 8 : Math.floor(8 + (date.getDay() - 1) * line_width)) + "px";
+            line.style.left = (sessionStorage.ar < 0.8 ? 8 : Math.floor(8 + (date.getDay() - 1) * line_width)) + "px";
         } else line.style.display = "none";
     }
 }
@@ -160,4 +160,10 @@ function getTime() {
 function addZero(i) {
     if (i < 10) i = "0" + i; // add zero in front of numbers < 10
     return i;
+}
+
+window.onresize = () => {
+    sessionStorage.ar = (window.innerWidth / window.innerHeight).toFixed(1);
+    schedule();
+    return (sessionStorage.ar);
 }
