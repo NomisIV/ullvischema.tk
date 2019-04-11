@@ -110,7 +110,6 @@ function hairline() {
         
         let time = new Date();
         
-        
         if (
             date.getWeekNumber() == new Date().getWeekNumber() && // DAY
             time.getHours() * 100 + time.getMinutes() > "820" && // After 08:20
@@ -128,6 +127,7 @@ function hairline() {
             line.style.top = 42 + height * 0.0555 + time_factor * (height * 0.9445 - 1) + "px";
             line.style.left = (sessionStorage.ar < 0.8 ? 8 : Math.floor(8 + (date.getDay() - 1) * line_width)) + "px";
         } else line.style.display = "none";
+        setTimeout(hairline, 1000);
     }
 }
 
@@ -166,4 +166,4 @@ window.onresize = () => {
     sessionStorage.ar = (window.innerWidth / window.innerHeight).toFixed(1);
     schedule();
     return (sessionStorage.ar);
-}
+};
