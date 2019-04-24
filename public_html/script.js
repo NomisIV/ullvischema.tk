@@ -56,15 +56,13 @@ for (const n in users) {
 // Load schedule
 function schedule() {
     
-    // Headern på schemat tar upp ~5.8% av höjden
-    
     // TAG
     const tag = document.getElementById("users").value || users[Object.keys(users)[0]];
     
     datepicker.config({
         format: d => {
             return (
-                window.innerHeight < window.innerWidth * Math.sqrt(2) ?
+                sessionStorage.ar > 0.8 ?
                     "Week " + d.getWeekNumber() :
                     months_short[d.getMonth()] + " " + d.getDate()
             );
@@ -111,7 +109,8 @@ function hairline() {
         let time = new Date();
         
         if (
-            date.getWeekNumber() == new Date().getWeekNumber() && // DAY
+            time.getWeekNumber() == date.getWeekNumber() && // If current week
+            time.getDay() - 1 < 5 && // If weekday
             time.getHours() * 100 + time.getMinutes() > "820" && // After 08:20
             time.getHours() * 100 + time.getMinutes() < "1530" // Before 15:30
         ) {
@@ -167,3 +166,5 @@ window.onresize = () => {
     schedule();
     return (sessionStorage.ar);
 };
+
+document.onfocus = schedule;

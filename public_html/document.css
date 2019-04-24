@@ -3,7 +3,7 @@ input[type=button], button, .button {
     min-width: 70px;
     border: 2px solid #4CAF50;
     background-color: unset;
-    color: #4CAF50;
+    color: rgb(76, 175, 80);
     margin: 0;
     padding: 3px 6px;
     border-radius: 4px;
@@ -39,6 +39,19 @@ input[type=button][class=delete] {
 input[type=button][class=delete]:hover {
     background-color: #ff5b5b;
     color: white;
+}
+
+.group * {
+    border-radius: 0 !important;
+    float: left;
+}
+
+.group *:first-child {
+    border-radius: 4px 0 0 4px !important;
+}
+
+.group *:last-child {
+    border-radius: 0 4px 4px 0 !important;
 }
 
 .toggle {

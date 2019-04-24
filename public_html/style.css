@@ -10,7 +10,7 @@
 
 .spacer-left {
     float: left;
-    width: calc(50% - 84px);
+    width: calc(50% - 75px);
 }
 
 select {
@@ -21,19 +21,26 @@ select {
 
 .datebar {
     float: left;
-    width: 168px;
+    width: 150px;
+    text-align: center;
 }
 
 #datepicker {
     width: 60px;
     padding: 3px;
     background-color: unset;
-    border: 2px solid dimgray;
+    border: 2px solid #4c4cad;
     border-radius: 4px;
     font: 14px arial;
-    color: dimgray;
+    color: transparent;
+    text-shadow: 0 0 #4c4cad;
     text-align: center;
     cursor: pointer;
+}
+
+#datepicker:hover {
+    background-color: #4c4cad;
+    text-shadow: 0 0 white;
 }
 
 input[type=button] {
@@ -42,7 +49,7 @@ input[type=button] {
 
 #clock {
     float: right;
-    width: calc(50% - 84px);
+    width: calc(50% - 75px);
     height: 26px;
     line-height: 26px;
     text-align: right;
@@ -65,7 +72,7 @@ p {
 
 a {
     text-decoration: none;
-    color: #4c4caf;
+    color: #4c4cad;
 }
 
 a:hover {

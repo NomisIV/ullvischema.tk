@@ -24,7 +24,7 @@
         <link rel="stylesheet" href="style.css">
         
     </head>
-    <body onload="darkmode(), getTime(), schedule()" onresize="orientation()">
+    <body onload="darkmode(), getTime(), window.onresize(), schedule()" onresize="orientation()">
         
         <!-- Menu bar -->
         <div class="center">
@@ -33,10 +33,10 @@
             </div>
             
             <!-- Datebar -->
-            <div class="datebar">
-                <input type="button" value="<<" onclick="prev()">
-                <input type="text" id="datepicker" onchange="schedule()">
-                <input type="button" value=">>" onclick="next()">
+            <div class="datebar group">
+                <input type="button" id="prev" value="<<" onclick="prev()">
+                <input type="input" id="datepicker" onkeypress="return false;" onchange="schedule()">
+                <input type="button" id="next" value=">>" onclick="next()">
             </div>
             
             <!-- Clock -->
