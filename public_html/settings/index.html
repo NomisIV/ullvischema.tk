@@ -26,7 +26,7 @@
         <div>
             <h1>Display seconds in clock</h1>
             <label class="toggle">
-                <input type="checkbox" id="seconds">
+                <input type="checkbox" id="seconds" onchange="submit()">
                 <span></span>
             </label>
         </div>
@@ -34,7 +34,7 @@
         <div>
             <h1>Show hairline</h1>
             <label class="toggle">
-                <input type="checkbox" id="hairline">
+                <input type="checkbox" id="hairline" onchange="submit()">
                 <span></span>
             </label>
             
@@ -44,7 +44,7 @@
         <div>
             <h1>Dark mode</h1>
             <label class="toggle">
-                <input type="checkbox" id="darkmode">
+                <input type="checkbox" id="darkmode" onchange="submit(), darkmode()">
                 <span></span>
             </label>
         </div>
@@ -53,7 +53,6 @@
             <h1>Schedule color theme</h1>
             <select id="theme"></select>
         </div>
-        <input type="button" value="Save changes" onclick="submit()">
-        <input type="button" value="Undo changes" onclick="window.location.href = '../'">
+        <input type="button" value="Go back" onclick="window.location.href = '../'">
     </body>
 </html>

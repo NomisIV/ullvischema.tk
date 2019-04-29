@@ -61,6 +61,7 @@ function removeProfile(name) {
     for (const n in Array.from(list.childNodes)) {
         if (list.childNodes[n].id == name) list.removeChild(list.childNodes[n]);
     }
+    submit();
 }
 
 function submit() {
@@ -69,6 +70,4 @@ function submit() {
     localStorage.hairline = document.getElementById("hairline").checked;
     localStorage.darkmode = document.getElementById("darkmode").checked;
     localStorage.theme    = document.getElementById("theme")   .value;
-
-    window.location.href = "../";
 }

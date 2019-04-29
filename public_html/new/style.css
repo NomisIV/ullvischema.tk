@@ -9,3 +9,9 @@ html, body {
     text-align: left;
     display: none;
 }
+
+.group {
+    display: inline-block;
+    height: 26px;
+    margin: auto;
+}
