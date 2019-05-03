@@ -14,14 +14,7 @@ function next() {
     datepicker.setDate(n);
 }
 
-// Darkmode
-function darkmode() {
-    document.body.style.backgroundColor = localStorage.darkmode == "true" ? "#262626" : "#ffffff";
-    document.body.style.color = localStorage.darkmode == "true" ? "#d9d9d9" : "#333333";
-    document.getElementById("hairline").style.backgroundColor = localStorage.darkmode == "true" ? "#d9d9d9" : "#000000";
-}
-
-// Theme
+// Color theme
 document.getElementById("schedule").style.filter =
     "hue-rotate(" + localStorage.theme + "deg)" +
     (localStorage.darkmode == "true" ? " invert(0.85)" : "");
@@ -76,7 +69,7 @@ function schedule() {
 
     // DAY
     let day;
-    if (sessionStorage.ar < 0.8) {
+    if (sessionStorage.ar <= 0.8) {
         if (date.getDay() == 0 || date.getDay() == 6) {
             day = 1;
             week++;
@@ -88,11 +81,10 @@ function schedule() {
     }
 
     let width = window.innerWidth - 16;
-    let height = window.innerHeight - 49;
+    let height = window.innerHeight - 50;
 
-    let url = "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=55860/sv-se&type=-1&id=" + tag + "&period=&week=" + week + "&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=" + day + "&width=" + width + "&height=" + height + "&maxwidth=0&maxheight=0";
-    document.getElementById("schedule").src = url;
-}
+    document.getElementById("schedule").src = "http://www.novasoftware.se/ImgGen/schedulegenerator.aspx?format=png&schoolid=55860/sv-se&type=-1&id=" + tag + "&period=&week=" + week + "&mode=0&printer=0&colors=32&head=0&clock=0&foot=0&day=" + day + "&width=" + width + "&height=" + height + "&maxwidth=0&maxheight=0";
+} schedule();
 
 //Hairline
 function hairline() {
@@ -142,6 +134,11 @@ function getTime() {
     if (h == 0 && m == 0 && s == 0) {
         schedule();
     }
+    
+    function addZero(i) {
+        if (i < 10) i = "0" + i; // add zero in front of numbers < 10
+        return i;
+    }
 
     m = addZero(m);
     s = addZero(s);
@@ -154,17 +151,12 @@ function getTime() {
         document.getElementById("clock").innerHTML = h + ":" + m;
     }
     setTimeout(getTime, 100);
-}
-
-function addZero(i) {
-    if (i < 10) i = "0" + i; // add zero in front of numbers < 10
-    return i;
-}
+} getTime();
 
 window.onresize = () => {
     sessionStorage.ar = (window.innerWidth / window.innerHeight).toFixed(1);
     schedule();
     return (sessionStorage.ar);
-};
+}; window.onresize();
 
 document.onfocus = schedule;

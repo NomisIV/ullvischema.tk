@@ -1,0 +1,12 @@
+html, body {
+    background-color: #262626;
+    color: #d9d9d9;
+}
+
+#settings {
+    background-image: url("/assets/settings-dark.svg");
+}
+
+#hairline {
+    background-color: #d9d9d9;
+}

@@ -1,7 +1,3 @@
-::-webkit-scrollbar {
-    display: none;
-}
-
 .center {
     text-align: center;
     height: 26px;
@@ -13,9 +9,21 @@
     width: calc(50% - 75px);
 }
 
+#settings {
+    float: left;
+    width: 24px;
+    height: 24px;
+    margin: 1px;
+    margin-right: 10px;
+}
+
+#settings:hover {
+    cursor: pointer;
+}
+
 select {
     float: left;
-    width: 100%;
+    width: calc(100% - 39px);
     max-width: max-content;
 }
 

@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <title>Schedule</title>
-        <link rel="shortcut icon" href="ullvi.ico"/>
+        <link rel="shortcut icon" href="/assets/ullvi.ico"/>
 
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -15,22 +15,27 @@
         <link rel="stylesheet" href="Datepicker/datepicker.css">
         
         <!-- Datepicker.js -->
-        <script src="Datepicker/datepicker.js"></script>
+        <script src="/Datepicker/datepicker.js"></script>
         
         <!-- document.css -->
-        <link rel="stylesheet" href="document.css">
+        <link rel="stylesheet" href="/assets/document.css">
         
         <!-- style.css -->
         <link rel="stylesheet" href="style.css">
         
-    </head>
-    <body onload="darkmode(), getTime(), window.onresize(), schedule()" onresize="orientation()">
+        <!-- /assets/script.css -->
+        <script src="/assets/script.js"></script>
         
+    </head>
+    <body>
         <!-- Menu bar -->
         <div class="center">
             <div class="spacer-left">
+                <a href="settings" id="settings"></a>
                 <select id="users" onchange="schedule()"></select>
             </div>
+            
+            <!--<input type="text" autocomplete="on">-->
             
             <!-- Datebar -->
             <div class="datebar group">
@@ -46,13 +51,6 @@
         <!-- Schedule -->
         <img id="schedule" alt="Schedule" onload="hairline()">
         
-        <footer style="margin-top: 20px">
-            <div class="center">
-                <p><a href="settings">Settings</a> | <script src="mail.js" type="text/javascript"></script></p>
-                <p>Coded with &lt3 by: TheOfficialSimon 17TE</p>
-                <p>Version 6.4</p><br>
-            </div>
-        </footer>
         <!-- script.js -->
         <script src="script.js"></script>
     </body>

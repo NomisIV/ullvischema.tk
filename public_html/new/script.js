@@ -12,7 +12,7 @@ xhttp.onreadystatechange = function() {
         students = JSON.parse(xhttp.responseText);
     }
 };
-xhttp.open("GET", "../students.json", false);
+xhttp.open("GET", "/assets/students.json", false);
 xhttp.send();
 
 // Put every class in class_list
