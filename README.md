@@ -1,5 +1,7 @@
 # Ullvischema
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/b3d67ed9-1115-40cb-908b-a131677a3d68/deploy-status)](https://app.netlify.com/sites/ullvischema/deploys)
+
 Ullvischema is a schedule generator for Ullvigymnasiet in Köping Sweden. It is using [NovaSoftwares' schedule generator](http://www.novasoftware.se/WebViewer/(S(cgwqhhuyvs52nt45qud0zxun))/design1.aspx?schoolid=55860), but it displays the schedule more user-friendly.
 
 ## How Ullvischema works
