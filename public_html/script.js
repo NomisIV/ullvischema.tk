@@ -25,8 +25,8 @@ if (Object.keys(users).length == 0) window.location.href = "new";
 
 const datepicker = new Datepicker(document.getElementById("datepicker"));
 datepicker.config({
-    firstdate: new Date(2019, 0, 9),
-    lastdate: new Date(2019, 5, 14),
+    firstdate: new Date(2019, 7, 21),
+    lastdate: new Date(2019, 11, 19),
     disableddays: d => { return (d.getDay() > 0 && d.getDay() < 6); },
     format: d => {
         return (
