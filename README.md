@@ -16,3 +16,4 @@ The first time you open Ullvischema on a new unit, you will be redirected to the
 * Instead of only showing the week-schedule (even though the schedule generator is capable of more), Ullvischema uses both the week-schedule and day-schedule and choses which format suits the best according to the aspect ratio of the browser window.
 * Instead of chosing which week you want to see, Ullvischema has an integrated datepicker that helps the user chose the right week / day.
 * Ullvischema also uses an experimental hairline to directly indicate time inside the schedule. Unfortunately it does not work on all schedules, since some schedules start and end at different times.
+* It uses HTTPS instead of HTTP.
