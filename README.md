@@ -1,6 +1,10 @@
 # Ullvischema
 
-[![Netlify Status](https://api.netlify.com/api/v1/badges/b3d67ed9-1115-40cb-908b-a131677a3d68/deploy-status)](https://app.netlify.com/sites/ullvischema/deploys)
+![Netlify](https://img.shields.io/netlify/b3d67ed9-1115-40cb-908b-a131677a3d68)
+![GitHub language count](https://img.shields.io/github/languages/count/NomisIV/ullvischema.tk)
+![CodeFactor Grade](https://img.shields.io/codefactor/grade/github/NomisIV/ullvischema.tk)
+![Code Climate issues](https://img.shields.io/codeclimate/issues/NomisIV/ullvischema.tk)
+![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/NomisIV/ullvischema.tk)
 
 Ullvischema is a schedule generator for Ullvigymnasiet in Köping Sweden. It is using [NovaSoftwares' schedule generator](http://www.novasoftware.se/WebViewer/(S(cgwqhhuyvs52nt45qud0zxun))/design1.aspx?schoolid=55860), but it displays the schedule in a more more user-friendly way.
 
