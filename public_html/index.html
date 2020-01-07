@@ -1,31 +1,35 @@
-<!DOCTYPE HTML>
+<!DOCTYPE html>
 <html lang="en">
     <head>
         <title>Schedule</title>
-        <link rel="shortcut icon" href="/assets/ullvi.ico"/>
+        <link rel="shortcut icon" href="/assets/ullvi.ico" />
 
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <meta name="keywords" content="ullvischema,ullvi,schema,ullvigymnasiet">
-        <meta name="description" content="A schedule generator more practical than Novasoftware's">
-        <meta name="author" content="TheOfficialSimon">
-        
-        
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <meta
+            name="keywords"
+            content="ullvischema,ullvi,schema,ullvigymnasiet"
+        />
+        <meta
+            name="description"
+            content="A schedule generator more practical than Novasoftware's"
+        />
+        <meta name="author" content="TheOfficialSimon" />
+
         <!-- Datepicker.css -->
-        <link rel="stylesheet" href="Datepicker/datepicker.css">
-        
+        <link rel="stylesheet" href="Datepicker/datepicker.css" />
+
         <!-- Datepicker.js -->
         <script src="/Datepicker/datepicker.js"></script>
-        
+
         <!-- document.css -->
-        <link rel="stylesheet" href="/assets/document.css">
-        
+        <link rel="stylesheet" href="/assets/document.css" />
+
         <!-- style.css -->
-        <link rel="stylesheet" href="style.css">
-        
+        <link rel="stylesheet" href="style.css" />
+
         <!-- /assets/script.css -->
         <script src="/assets/script.js"></script>
-        
     </head>
     <body>
         <!-- Menu bar -->
@@ -34,23 +38,28 @@
                 <a href="settings" id="settings"></a>
                 <select id="users" onchange="schedule()"></select>
             </div>
-            
+
             <!--<input type="text" autocomplete="on">-->
-            
+
             <!-- Datebar -->
             <div class="datebar group">
-                <input type="button" id="prev" value="<<" onclick="prev()">
-                <input type="input" id="datepicker" onkeypress="return false;" onchange="schedule()">
-                <input type="button" id="next" value=">>" onclick="next()">
+                <input type="button" id="prev" value="<<" onclick="prev()" />
+                <input
+                    type="input"
+                    id="datepicker"
+                    onkeypress="return false;"
+                    onchange="schedule()"
+                />
+                <input type="button" id="next" value=">>" onclick="next()" />
             </div>
-            
+
             <!-- Clock -->
             <div id="clock" class="noselect"></div>
         </div>
-        
+
         <!-- Schedule -->
-        <img id="schedule" alt="Schedule" onload="hairline()">
-        
+        <img id="schedule" alt="Schedule" onload="hairline()" />
+
         <!-- script.js -->
         <script src="script.js"></script>
     </body>
