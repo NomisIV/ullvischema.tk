@@ -51,7 +51,7 @@ select {
     text-shadow: 0 0 white;
 }
 
-input[type=button] {
+input[type="button"] {
     min-width: 40px;
 }
 

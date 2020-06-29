@@ -1,14 +1,16 @@
 // Darkmode
 function darkmode() {
-    document.body.style.backgroundColor = localStorage.darkmode == "true" ? "#262626" : "#ffffff";
-    document.body.style.color = localStorage.darkmode == "true" ? "#d9d9d9" : "#333333";
+    document.body.style.backgroundColor =
+        localStorage.darkmode == "true" ? "#262626" : "#ffffff";
+    document.body.style.color =
+        localStorage.darkmode == "true" ? "#d9d9d9" : "#333333";
 }
 
 let users = JSON.parse(localStorage.users);
 
 function getRadioValue(radio_group) {
-    for(let n = 0; n < radio_group.length; n++) {
-        if(radio_group[n].checked) {
+    for (let n = 0; n < radio_group.length; n++) {
+        if (radio_group[n].checked) {
             return radio_group[n];
         }
     }
@@ -22,26 +24,29 @@ function getSettings() {
         let li = document.createElement("li");
         li.id = user;
         li.innerHTML = user;
-        
+
         let btn = document.createElement("input");
         btn.type = "button";
         btn.className = "delete";
         btn.value = "Delete";
         btn.setAttribute("onclick", "removeProfile('" + user + "')");
         li.append(btn);
-        
+
         list.append(li);
     }
-    
+
     // Seconds in clock
-    document.getElementById("seconds").checked = localStorage.sec == "false" ? false : true;
-    
+    document.getElementById("seconds").checked =
+        localStorage.sec == "false" ? false : true;
+
     // Hairline
-    document.getElementById("hairline").checked = localStorage.hairline == "true" ? true : false;
-    
+    document.getElementById("hairline").checked =
+        localStorage.hairline == "true" ? true : false;
+
     // Dark mode
-    document.getElementById("darkmode").checked = localStorage.darkmode == "true" ? true : false;
-    
+    document.getElementById("darkmode").checked =
+        localStorage.darkmode == "true" ? true : false;
+
     // Theme
     const theme = document.getElementById("theme");
     const themes = 8;
@@ -56,7 +61,7 @@ function getSettings() {
 }
 
 function removeProfile(name) {
-    users[name] = undefined; 
+    users[name] = undefined;
     let list = document.getElementById("profiles");
     for (const n in Array.from(list.childNodes)) {
         if (list.childNodes[n].id == name) list.removeChild(list.childNodes[n]);
@@ -65,9 +70,9 @@ function removeProfile(name) {
 }
 
 function submit() {
-    localStorage.users    = JSON.stringify(users);
-    localStorage.sec      = document.getElementById("seconds") .checked;
+    localStorage.users = JSON.stringify(users);
+    localStorage.sec = document.getElementById("seconds").checked;
     localStorage.hairline = document.getElementById("hairline").checked;
     localStorage.darkmode = document.getElementById("darkmode").checked;
-    localStorage.theme    = document.getElementById("theme")   .value;
+    localStorage.theme = document.getElementById("theme").value;
 }

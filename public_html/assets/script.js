@@ -10,3 +10,4 @@ function selectTheme() {
     if (document.getElementById("theme")) document.head.replaceChild(document.getElementById("theme"), link);
     else document.head.append(link);
 } selectTheme();
+

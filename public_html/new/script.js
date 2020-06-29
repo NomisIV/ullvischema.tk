@@ -33,14 +33,14 @@ function getNameList() {
     while (name_list.lastChild.innerHTML != "Name") {
         name_list.removeChild(name_list.lastChild);
     }
-    
+
     const users = JSON.parse(localStorage.users || "{}");
     for (const name in students[class_name]) {
         let exists = false;
         for (const u in users) {
             if (u == name) exists = true;
         }
-        
+
         let opt = document.createElement("option");
         if (exists) opt.disabled = true;
         opt.value = name;
@@ -59,10 +59,11 @@ function submit() {
     const class_name = document.getElementById("class_list").value;
     const name = document.getElementById("name_list").value;
     const tag = students[class_name][name];
-    
+
     let users = JSON.parse(localStorage.users || "{}");
     users[name] = tag;
     localStorage.users = JSON.stringify(users);
-    
+
     window.location.href = "../";
 }
+

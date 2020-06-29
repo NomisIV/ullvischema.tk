@@ -8,28 +8,17 @@
         "ecmaVersion": 2018
     },
     "rules": {
-        "indent": [
-            "error",
-            4
-        ],
-        "linebreak-style": [
-            "error",
-            "unix"
-        ],
-        "quotes": [
-            "error",
-            "double"
-        ],
-        "semi": [
-            "error",
-            "always"
-        ],
+        "indent": ["warn", 4],
+        "linebreak-style": ["warn", "unix"],
+        "quotes": ["warn", "double"],
+        "semi": ["error", "always"],
         "no-unused-vars": [
-            "error",
+            "warn",
             {
                 "vars": "local"
             }
-        ]
+        ],
+        "no-trailing-spaces": ["warn"]
     },
     "globals": {
         "Datepicker": "readonly",

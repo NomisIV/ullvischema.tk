@@ -4,18 +4,18 @@ body {
     margin: 50px auto 0;
 }
 
-body>div {
+body > div {
     padding-bottom: 25px;
     border-bottom: 1px solid lightgray;
     margin-bottom: 25px;
 }
 
-body>div>h1 {
+body > div > h1 {
     display: inline-block;
     margin: 0;
-} 
+}
 
-input[type=button][class=delete] {
+input[type="button"][class="delete"] {
     min-width: unset;
 }
 
@@ -24,7 +24,7 @@ span.bold {
 }
 
 span.red {
-    color: #FF5b5b;
+    color: #ff5b5b;
 }
 
 #profiles {
@@ -42,10 +42,12 @@ span.red {
     font: 26px arial;
 }
 
-.toggle, select {
+.toggle,
+select {
     float: right;
 }
 
-a, a:hover {
+a,
+a:hover {
     text-decoration: none;
 }

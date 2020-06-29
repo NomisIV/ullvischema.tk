@@ -3,13 +3,13 @@
     <head>
         <title>Settings</title>
         <link rel="shortcut icon" href="/assets/ullvi.ico"/>
-        
+
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        
+
         <!-- document.css -->
         <link rel="stylesheet" href="/assets/document.css">
-        
+
         <!-- style.css -->
         <link rel="stylesheet" href="style.css">
 
@@ -22,7 +22,7 @@
             <ul id="profiles"></ul>
             <a href="../new" class="button">Add profile</a>
         </div>
-    
+
         <div>
             <h1>Display seconds in clock</h1>
             <label class="toggle">
@@ -30,17 +30,17 @@
                 <span></span>
             </label>
         </div>
-        
+
         <div>
             <h1>Show hairline</h1>
             <label class="toggle">
                 <input type="checkbox" id="hairline" onchange="submit()">
                 <span></span>
             </label>
-            
+
             <p id="hairline_warning"><span class="bold red">The hairline assumes the schedule starts at 8:20 and ends 15:30. If your personal schedule does not meet these requirements, please disable the hairline.</span></p>
         </div>
-        
+
         <div>
             <h1>Dark mode</h1>
             <label class="toggle">
@@ -48,7 +48,7 @@
                 <span></span>
             </label>
         </div>
-        
+
         <div>
             <h1>Schedule color theme</h1>
             <select id="theme" onchange="submit()"></select>

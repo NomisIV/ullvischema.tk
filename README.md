@@ -6,7 +6,7 @@
 ![Code Climate issues](https://img.shields.io/codeclimate/issues/NomisIV/ullvischema.tk)
 ![Code Climate maintainability](https://img.shields.io/codeclimate/maintainability/NomisIV/ullvischema.tk)
 
-Ullvischema is a schedule generator for Ullvigymnasiet in Köping Sweden. It is using [NovaSoftwares' schedule generator](http://www.novasoftware.se/WebViewer/(S(cgwqhhuyvs52nt45qud0zxun))/design1.aspx?schoolid=55860), but it displays the schedule in a more more user-friendly way.
+Ullvischema is a schedule generator for Ullvigymnasiet in Köping Sweden. It is using [NovaSoftwares' schedule generator](<http://www.novasoftware.se/WebViewer/(S(cgwqhhuyvs52nt45qud0zxun))/design1.aspx?schoolid=55860>), but it displays the schedule in a more more user-friendly way.
 
 ## How Ullvischema works
 
