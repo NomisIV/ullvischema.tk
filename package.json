@@ -18,6 +18,6 @@
     "homepage": "https://github.com/TheOfficialSimon/Ullvischema#readme",
     "dependencies": {
         "eslint": "^6.8.0",
-        "eslint-config-prettier": "^6.9.0"
+        "eslint-config-prettier": "^6.11.0"
     }
 }
