@@ -1,23 +1,23 @@
 {
-    "name": "ullvischema",
-    "version": "5.3.1",
-    "description": "A better schedule generator than NovaSoftware",
-    "main": "index.html",
-    "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/TheOfficialSimon/Ullvischema.git"
-    },
-    "author": "TheOfficialSimon",
-    "license": "ISC",
-    "bugs": {
-        "url": "https://github.com/TheOfficialSimon/Ullvischema/issues"
-    },
-    "homepage": "https://github.com/TheOfficialSimon/Ullvischema#readme",
-    "dependencies": {
-        "eslint": "^6.8.0",
-        "eslint-config-prettier": "^6.11.0"
-    }
+  "name": "ullvischema",
+  "version": "5.3.1",
+  "description": "A better schedule generator than NovaSoftware",
+  "main": "index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TheOfficialSimon/Ullvischema.git"
+  },
+  "author": "TheOfficialSimon",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TheOfficialSimon/Ullvischema/issues"
+  },
+  "homepage": "https://github.com/TheOfficialSimon/Ullvischema#readme",
+  "devDependencies": {
+    "eslint": "^6.8.0",
+    "eslint-config-prettier": "^6.11.0"
+  }
 }

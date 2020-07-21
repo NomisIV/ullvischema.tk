@@ -1,12 +1,12 @@
 {
-    "tabWidth": 4,
-    "overrides": [
-        {
-            "files": "package.json",
-            "options": {
-                "tabWidth": 2
-            }
-        }
-    ],
-    "endOfLine": "lf"
+  "tabWidth": 4,
+  "overrides": [
+    {
+      "files": "*.json",
+      "options": {
+        "tabWidth": 2
+      }
+    }
+  ],
+  "endOfLine": "lf"
 }
